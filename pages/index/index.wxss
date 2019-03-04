@@ -1,0 +1,5 @@
+/**index.wxss**/
+.submit-form {
+  display: block;
+  margin-top: 50px;
+}

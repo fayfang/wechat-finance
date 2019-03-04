@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="stockData">
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th">title</view>
+        <view class="th">沪指</view>
+        <view class="th">深指</view>
+        <view class="th">沪深300</view>
+        <view class="th ">创业板</view>
+      </view>
+      <block wx:for="{{stockData.hz}}" wx:key="{{code}}">
+        <view class="tr">
+          <view class="td td-title">{{titleList[index]}}</view> 
+          <view class="td {{stockData.hz[index] < 0 ? 'green': 'red'}}">{{stockData.hz[index]}}</view>  
+          <view class="td {{stockData.sz[index] < 0 ? 'green': 'red'}}">{{stockData.sz[index]}}</view>
+          <view class="td {{stockData.hs300[index] < 0 ? 'green': 'red'}}">{{stockData.hs300[index]}}</view>  
+          <view class="td {{stockData.cyb[index] < 0 ? 'green': 'red'}}">{{stockData.cyb[index]}}</view>
+        </view>
+      </block>
+    </view>
+    <form class="submit-form" bindsubmit="handleSubmit" report-submit='true'>
+      <button form-type="submit" disabled="{{loading}}" loading="{{loading}}">订阅</button>
+    </form>
+  </view>
+</view>
